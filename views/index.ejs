@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SocketCluster ejs</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+      .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+      }
+      /* IE 6 doesn't support max-height
+       * we use height instead, but this forces the menu to always be this tall
+       */
+      * html .ui-autocomplete {
+        height: 100px;
+      }
+    </style>
+
+    <script type="text/javascript" src="/socketcluster.js"></script>
+    <script type="text/javascript" src="/ejs.min.js"></script>
+    <script type="text/javascript" src="/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/tether.min.js"></script>    
+    <script type="text/javascript" src="/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/libs/moment.min.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
+    <script type="text/javascript" src="/javascripts/login.js"></script>
+    <script type="text/javascript" src="/javascripts/autocomplete_factory.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="container">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#!/">Navbar</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!/customerorder">Заказы клиентов</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!/supplierorder">Заказы поставщикам</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!/payment">Платежи</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!/store">Склады</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!/dashboard">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+  <!-- Button trigger modal -->
+    <div class="userMenu">
+      <a id="loginButton" href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Войти
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div id='output'></div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="login" data-text="Логин">Логин</label>
+          <input type="text" class="form-control" id="login" placeholder="Логин">
+        </div>
+        <div class="form-group">
+          <label for="pass">Пароль</label>
+          <input type="password" class="form-control" id="pass" placeholder="Пароль">
+        </div>
+      </form>
+
+      <button type="button" class="btn btn-primary" onclick="login();">Войти</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
